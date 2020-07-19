@@ -12,43 +12,17 @@
         data(){
             return {
                 hours: [
-                    {
-                        id: '8:00',
-                        available: true
-                    },
-                    {
-                        id: '8:30',
-                        available: true
-                    },
-                    {
-                        id: '9:00',
-                        available: true
-                    },
-                    {
-                        id: '9:30',
-                        available: true
-                    },
-                    {
-                        id: '10:00',
-                        available: true
-                    },
-                    {
-                        id: '10:30',
-                        available: true
-                    },
-                    {
-                        id: '11:00',
-                        available: true
-                    },
-                    {
-                        id: '11:30',
-                        available: true
-                    }
                 ]
             }
         },
+        methods:{
+            async getHours(){
+                let result = await axios.get('api/available_hours', { params: { date: '2020-07-19'}} )
+                    this.hours = result.data;
+            }
+        },
         mounted(){
-            console.log(this.hours);
+            this.getHours();
         }
     }
 </script>
