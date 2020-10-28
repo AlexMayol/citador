@@ -31,7 +31,7 @@ Vue.component('datehours', DateHours);
 
 const app = new Vue({
     el: '#app',
-    data:{
+    data: {
 
-    }
+    },
 });
